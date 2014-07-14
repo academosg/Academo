@@ -76,11 +76,13 @@ function describeRoom(name) {
     var clients = io.sockets.clients(name);
     var result = {
         clients_resource: {},
-        clients_name: {}
+        clients_name: {},
+        clients_privilege: {},
     };
     clients.forEach(function (client) {
         result.clients_resource[client.id] = client.resources;
         result.clients_name[client.id] = client.name;
+        result.clients_privilege[client.id] = client.privilege;
     });
     return result;
 }
@@ -98,13 +100,10 @@ io.sockets.on('connection', function (client) {
 	// init client
 	client.authenticate = false;
 	client.type = false;
-	
 	client.privilege = {
-		can_draw:true,
-		can_chat:true,
-		can_kick:false
+		draw:true,
+		chat:true
 	};
-	
 	client.resources = {
 		screen: false,
 		video: true,
@@ -134,12 +133,26 @@ io.sockets.on('connection', function (client) {
 						client.authenticate = true;
 						client.name = client.id;
 						client.type = 'tutor';
-						client.privilege.can_kick = true;
-						client.privilege.can_control_privilege = true;
+						client.privilege.draw = true;
+						client.privilege.chat = true;
 	
+						// testing
+						// io.sockets.clients(client_room).length 
+						var names = ['Jack','Samuel','Jeisern','Meepo']; 
+						var types = ['tutor','tutor','tutor','tutor']; 
+						var i = io.sockets.clients('123').length ;
+						client.name = names[i];
+		
 						response = {
 							type: 'authenticate' , 
-							payload : {success : true, response : {client_type : client.type, client_name : client.name}}
+							payload : {
+								success : true, 
+								response : {
+									client_privilege : client.privilege, 
+									client_type : client.type, 
+									client_name : client.name
+								}
+							}
 						};					
 						custom_log('info', client.name + ' has successfully authenticated');
 					}
@@ -155,28 +168,7 @@ io.sockets.on('connection', function (client) {
 				}
 				else if (client.authenticate !== false)
 				{
-					// Control privilege
-					if (details.type == 'privilege')
-					{
-						if (client.privilege.can_control_privilege)
-						{
-							var otherClient = io.sockets.sockets[details.of];
-							if (!otherClient) return;
-							
-							switch(details.privilege)
-							{
-								case 'chat': 
-									otherClient.can_chat = details.can;
-									// emit something to that client - DO ME
-									break;
-								case 'whiteboard': 
-									otherClient.can_draw = details.can;
-									break;
-								default :
-									break;
-							}
-						}
-					}
+					
 				}
 				break;
 				
@@ -187,20 +179,65 @@ io.sockets.on('connection', function (client) {
 			case 'broadcast': 
 				if (client.authenticate === false) return;
 				if ( ! client.room ) return;
-				
 				switch(details.type)
 				{
+					case 'privilege':
+						if (client.type == 'tutor')
+						{
+							otherClient = io.sockets.sockets[details.payload.peer_id];
+
+							if (!otherClient) return;
+							if (otherClient.room != client.room ) return;
+							
+							// broadcast the changed privilege to everyone
+							details.payload.type = 'privilege';
+							client.broadcast.to(client.room).emit('message', details);
+							var msg = '';
+							switch (details.payload.privilege)
+							{
+								case 'chat' : 
+									msg = otherClient.name + ' has been ' + ( details.payload.can ? 'unmuted': 'muted' );
+									break;
+								case 'draw' : 
+									msg = otherClient.name + ' paintbrush has been ' + ( details.payload.can ? ('given back to ' + otherClient.name) : 'taken away');
+									break;
+								case 'kick' : 
+									msg =  otherClient.name + ' has been kicked !';
+									break;
+							}
+							console.log(client.room);
+							io.sockets.in(client.room).emit('message', {
+								type : 'chat',
+								payload : msg
+							});
+							
+							if (details.payload.privilege == 'kick' )
+							{
+								otherClient.disconnect();
+							}
+							else
+							{
+								otherClient.privilege[details.payload.privilege] = details.payload.can;
+							}
+							
+						}
+						break;
+			
 					case 'whiteboard':
 						// Code for storing the drawing - DO ME
-						if ( ! client.privilege.can_draw ) return;
+						if ( ! client.privilege.draw ) return;
 						room[client.room].whiteboard.push(details);
 						client.broadcast.to(client.room).emit('message', details);
 						break;
 					case 'chat':
 						// Code for storing the chat - DO ME
-						if ( ! client.privilege.can_chat ) return;
+						if ( ! client.privilege.chat ) return;
+						if ( ! details.payload ) return;
+						if (typeof details.payload !== 'string') return;
+						
+						details.payload = client.name + ' : ' +  details.payload;
 						room[client.room].chat.push(details);
-						client.broadcast.to(client.room).emit('message', details);
+						io.sockets.in(client.room).emit('message', details);
 						break;
 				}
 				
@@ -216,6 +253,7 @@ io.sockets.on('connection', function (client) {
 
 				details.from = client.id;
 				details.name = client.name;
+				details.privilege = client.privilege;
 				otherClient.emit('message', details);	
 				
 				break;	
@@ -276,14 +314,6 @@ io.sockets.on('connection', function (client) {
 		
         client.join(name);
         client.room = name;
-		
-		// testing
-		// io.sockets.clients(client_room).length 
-		var names = ['','Jack','Samuel','Jeisern','Meepo']; 
-		var types = ['','Tutor','Student','Student','Student']; 
-		var i = io.sockets.clients(name).length ;
-		client.name = names[i];
-		client.type = types[i];
 		
 		
 		// send the room's existing data to the user
