@@ -1,0 +1,147 @@
+html,body {
+    background-color: #e9e381;
+    height: 100%;
+}
+
+hr {
+    border-color: #000000;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.color-red {
+    background-color: rgba(224, 67, 47, 0.9);
+    border: red;
+}
+    .color-red:hover {
+        background-color: rgba(250, 0, 0, 1);
+    }
+
+#pageHeader {
+}
+
+.logo {
+    height: 100px;
+}
+
+    .logo > a > img {
+        height: 100%;
+    }
+
+.login-box {
+    font-size: 20px;
+    padding-top: 20px;
+}
+    .login-box > div {
+        cursor: pointer;
+        background-color: inherit;
+    }
+        .login-box > div:hover {
+            opacity: 0.4;
+        }
+
+
+#menuBar {
+    font-size: 20px;
+    cursor: pointer;
+}
+    #menuBar > .menu-item:hover {
+        box-shadow: 0 0 3px 0 black;
+        color: #555;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+.menu-item.active,
+.menu-item:active {
+    color: #555;
+    background-color: #cbc56a;
+    box-shadow: inset 1px 1px 1px 0 grey;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.nav-pills {
+    padding: 0;
+}
+
+.nav-pills > li {
+    width: 33%;
+}
+
+.nav-pills > li > a {
+    background-color: rgba(224, 67, 47, 0.9);
+    cursor: pointer;
+    color: black;
+    display: inline-block;
+    font-size: 18px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    min-width: 60%;
+}
+    .nav-pills > li > .active {
+        background-color: rgba(145, 44, 37, 0.90);
+        color: white;
+        border: thin solid rgba(145, 44, 37, 1);
+    }
+
+    .nav-pills > li > a:hover,
+    .nav-pills > li > a.active:hover{
+        background-color: rgba(250, 0, 0, 0.4);
+    }
+
+#pageBody {
+    margin-top: -20px;
+    background-color: #fffcde;
+    margin-bottom: 50px;
+    display: block;
+    padding: 40px 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.info-box {
+    background-color: inherit;
+}
+
+.info-pic-holder > img {
+    width: 40%;
+    height: 40%;
+}
+
+.info-text-holder {
+    padding: 0 10%;
+    margin-top: 10px;
+}
+
+.info-faces-holder {
+    padding: 0 5%;
+}
+
+.thumbnail > img {
+    height: 100px;
+}
+
+.contact-info {
+    padding: 0 5%;
+}
+    .contact-info > form {
+        padding: 10% 10%;
+        background-color: #e9e381;
+    }
+
+#followUs {
+    width: 100%;
+    background-color: #e9e381;
+    margin: 10px 0 0 0;
+    padding: 10px 0;
+}
+        #followUs > div > img {
+            width: 50%;
+        }
