@@ -10,6 +10,81 @@
 </head>
 <body>
 <div class="container">
+    <div class="modal fade" id="profilePopup">
+        <div class="modal-dialog modal-vlg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <div class="align-center">
+                        <div class="nav-arrows inline-block">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <h2 class="inline-block">Clockworks' Profile</h2>
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <ul class="media-list center-block" id="profile">
+                        <li class="media">
+                            <div class="pull-left thumbnail align-center" href="#">
+                                <ul class="nav nav-pills">
+                                    <li><a href="#" class="active">About</a></li>
+                                    <li><a href="#">Talk to the Team</a></li>
+                                </ul>
+                                <hr />
+                                <span id="startupMessagePopupModal0" data-id="startupId0"
+                                      data-name="Clockworks" class="glyphicon glyphicon-envelope pull-right envelope-big"></span>
+                                <img src="img/eraser.png" alt="Clockworks' Photo"><br>
+                                <a class="cursor-pointer" href="www.clockworks.com.sg">www.clockworks.com.sg</a>
+                            </div>
+                            <div class="media-body">
+                                <ul class="list-group inline-block">
+                                    <li>Name: Clockworks G</li>
+                                    <li>Degree: Materials Science and Engg</li>
+                                    <li>Place: IIT</li>
+                                    <li>Languages: ...</li>
+                                    <li>Country: India</li><br>
+                                    <li>About Me:
+                                        <p>
+                                            In 1991, Shaka Senghor shot and killed a man. He was, he says, "a drug dealer with a quick temper and a semi-automatic
+
+                                            pistol." Jailed for second degree murder, that could very well have been the end of the story. But it wasn't. Instead, it was
+
+                                            the beginning of a years-long journey to redemption, one with humbling and sobering lessons for us all.This talk was pre-
+                                            sented at an official TED conference, and was featured by our editors on the home page.In 1991, Shaka Senghor shot and
+
+                                            killed a man. He was, he says, "a drug dealer with a quick temper and a semi-automatic pistol." Jailed for second degree
+
+                                            murder, that could very well have been the end of the story. But it wasn't. Instead, it was the beginning of a years-long
+                                        </p>
+                                    </li><br>
+                                    <li>Passion:
+                                        <p>Some thing Something...</p>
+                                    </li><br>
+                                    <li>My Story:
+                                        <p>
+                                            In 1991, Shaka Senghor shot and killed a man. He was, he says, "a drug dealer with a quick temper and a semi-automatic
+
+                                            pistol." Jailed for second degree murder, that could very well have been the end of the story. But it wasn't. Instead, it was
+
+                                            the beginning of a years-long journey to redemption, one with humbling and sobering lessons for us all.This talk was pre-
+                                            sented at an official TED conference, and was featured by our editors on the home page.In 1991, Shaka Senghor shot and
+
+                                            killed a man. He was, he says, "a drug dealer with a quick temper and a semi-automatic pistol." Jailed for second degree
+
+                                            murder, that could very well have been the end of the story. But it wasn't. Instead, it was the beginning of a years-long
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
     <div id="pageHeader" class="container-fluid">
         <div class="row">
             <div class="col-xs-4 logo">
@@ -71,7 +146,7 @@
                 </a>
                 <div class="media-body">
                     <ul class="list-group inline-block">
-                        <li><a href="#">Name: Clockworks</a></li>
+                        <li>Name: <a class="profile-trigger cursor-pointer">Clockworks</a></li>
                         <li>Aim:</li>
                     </ul>
                 </div>
@@ -87,7 +162,7 @@
                 </a>
                 <div class="media-body">
                     <ul class="list-group inline-block">
-                        <li><a href="#">Name: JackOfAllThreats</a></li>
+                        <li>Name: <a class="profile-trigger cursor-pointer">JackOfAllThreats</a></li>
                         <li>Aim:</li>
                     </ul>
                 </div>
