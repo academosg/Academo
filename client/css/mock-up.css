@@ -4,7 +4,7 @@ html,body {
 }
 
 hr {
-    border-color: #000000;
+    border-color: #AAA;
 }
 
 .align-center {
@@ -18,6 +18,7 @@ hr {
 .contact-info {
     padding: 0 5%;
 }
+
 .contact-info > form {
     padding: 10% 10%;
     background-color: #e9e381;
@@ -30,6 +31,10 @@ hr {
     .color-red:hover {
         background-color: rgba(250, 0, 0, 1);
     }
+
+.cursor-pointer {
+    cursor: pointer;
+}
 
 .envelope-big {
     font-size: 24px;
@@ -58,9 +63,30 @@ hr {
         cursor: pointer;
         background-color: inherit;
     }
+
         .login-box > div:hover {
             opacity: 0.4;
         }
+
+    .login-box > .popover-message {
+        background-color: white;
+    }
+
+        .login-box > .popover-message:hover {
+            opacity: 1;
+        }
+
+        .login-box > .popover-message button {
+            background-color: #e9e381;
+        }
+
+.media a {
+    color: #99e0ff;
+}
+    .media a:hover {
+        color: white;
+        text-decoration: none;
+    }
 
 #menuBar {
     font-size: 20px;
@@ -91,7 +117,7 @@ hr {
     width: 33%;
 }
 
-.nav-pills > li > a {
+#menuBarHolder > .nav-pills > li > a {
     background-color: rgba(224, 67, 47, 0.9);
     cursor: pointer;
     color: black;
@@ -102,14 +128,14 @@ hr {
     border-radius: 5px;
     min-width: 60%;
 }
-    .nav-pills > li > .active {
+    #menuBarHolder > .nav-pills > li > .active {
         background-color: rgba(145, 44, 37, 0.90);
         color: white;
         border: thin solid rgba(145, 44, 37, 1);
     }
 
-    .nav-pills > li > a:hover,
-    .nav-pills > li > a.active:hover{
+    #menuBarHolder > .nav-pills > li > a:hover,
+    #menuBarHolder > .nav-pills > li > a.active:hover{
         background-color: rgba(250, 0, 0, 0.4);
     }
 
@@ -192,12 +218,13 @@ hr {
 .popover-message {
     color: black;
     width: 400px;
-    background-color: #e9e381;
-    border: medium solid black;
+    border: thick solid #9c9757;
 }
 
 .popover-title {
     padding: 5px;
+    background-color: inherit;
+    border: 0;
 }
 
 .message-box {
@@ -206,6 +233,55 @@ hr {
     border-radius: 10px;
 
     display: inline-block;
+    background-color: #e9e381;
 
     width: 100%;
+    padding: 5px;
+}
+
+#profile {
+    width: 90%;
+    font-style: italic;
+}
+
+    #profile img {
+        max-height: 500px;
+        height: 500px;
+        width: 400px;
+        max-width: 400px;
+    }
+
+    #profile a {
+        color: #2eaee6;;
+    }
+
+.nav-arrows > span,
+.nav-arrows > h2{
+    font-size: 34px;
+    margin-right: 15px;
+}
+
+#profile .nav-pills > li > a {
+    background-color: #e9e381;
+    cursor: pointer;
+    color: black;
+    display: inline-block;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    min-width: 60%;
+}
+#profile .nav-pills > li > .active {
+    color: rgba(145, 44, 37, 0.90);
+    border: thin solid rgba(145, 44, 37, 0.90);
+    background-color: white;
+}
+
+#profile .nav-pills > li > a:hover{
+    background-color: #fffab3;
+}
+
+#profile .nav-pills > li > .active:hover {
+    background-color: #DB807B;
+    color: white;
 }

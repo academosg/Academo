@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Academo</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mock-up.css">
+    <script src="js/jquery-minified.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/mock-up.js"></script>
+</head>
+<body>
+<div class="container">
+    <div id="pageHeader" class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 logo">
+                <a href="#"><img src="img/logo.jpg"></a>
+            </div>
+            <div class="col-xs-3 col-xs-offset-5">
+                <div id="loginBox" class="login-box row align-center">
+                    <div id="paypalTopUp" class="col-xs-5 top-up">TOP-UP</div>
+                    <div class="col-xs-4">LOGOUT<br><small>(asdf@asd.com)</small></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div id="menuBarHolder">
+        <div id="menuBar" class="row align-center">
+            <div class="col-xs-3 menu-item"><h4>About ACADEMO</h4></div>
+            <div class="col-xs-2 menu-item"><h4>Faces</h4></div>
+            <div class="col-xs-3 menu-item"><h4>Our Achievements</h4></div>
+            <div class="col-xs-2 menu-item"><h4>Contact Us</h4></div>
+            <div class="col-xs-2 menu-item"><h4>Blog</h4></div>
+        </div>
+        <br>
+        <ul class="nav nav-pills align-center container">
+            <li><a>Personalised Tutorials</a></li>
+            <li><a>Smart Classroom</a></li>
+            <li><a class="active">Start-up Consultation</a></li>
+        </ul>
+    </div>
+    <div id="pageBody">
+        <div class="info-box" id="aboutAcademo">
+            <h3 class="header align-center">How does it work?</h3>
+            <h4 class="center-block align-center">
+                <ol type="1" class="inline-block align-left">
+                    <li>Search for a Startup/Aim</li>
+                    <li>Get Started!</li>
+                </ol>
+            </h4>
+        </div>
+    </div>
+    <div id="searchBox" class="container">
+        <div class="form-group row search-box">
+            <div class="col-xs-7 col-xs-offset-1">
+                <input type="text" class="form-control" placeholder="ClockWorks or Games" />
+            </div>
+            <div class="col-xs-2">
+                <button type="button" class="form-control">Search</button>
+            </div>
+        </div>
+    </div>
+    <div id="searchResults" class="container">
+        <ul class="media-list">
+            <li class="media" id="startupId0">
+                <span id="startupMessagePopup0" data-id="startupId0"
+                      data-name="Clockworks" class="glyphicon glyphicon-envelope pull-right envelope-big"></span>
+                <br>
+                <a class="pull-left" href="#">
+                    <img class="media-object" src="img/eraser.png" alt="Clockworks' Photo">
+                </a>
+                <div class="media-body">
+                    <ul class="list-group inline-block">
+                        <li><a href="#">Name: Clockworks</a></li>
+                        <li>Aim:</li>
+                    </ul>
+                </div>
+                <a href="#" class="pull-right cursor-pointer">##@#.com</a>
+                <br>
+            </li>
+            <li class="media" id="startupId1">
+                <span id="startupMessagePopup1" data-id="startupId0"
+                      data-name="JackOfAllThreats" class="glyphicon glyphicon-envelope pull-right envelope-big"></span>
+                <br>
+                <a class="pull-left" href="#">
+                    <img class="media-object" src="img/eraser.png" alt="JackOfAllThreats' Photo">
+                </a>
+                <div class="media-body">
+                    <ul class="list-group inline-block">
+                        <li><a href="#">Name: JackOfAllThreats</a></li>
+                        <li>Aim:</li>
+                    </ul>
+                </div>
+                <a href="#" class="pull-right cursor-pointer">##@#.com</a>
+                <br>
+            </li>
+        </ul>
+    </div>
+
+    <div id="pageFooter"></div>
+</div>
+</body>
+</html>
