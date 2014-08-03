@@ -11,6 +11,18 @@ hr {
     text-align: center;
 }
 
+.align-left {
+    text-align: left;
+}
+
+.contact-info {
+    padding: 0 5%;
+}
+.contact-info > form {
+    padding: 10% 10%;
+    background-color: #e9e381;
+}
+
 .color-red {
     background-color: rgba(224, 67, 47, 0.9);
     border: red;
@@ -19,7 +31,15 @@ hr {
         background-color: rgba(250, 0, 0, 1);
     }
 
-#pageHeader {
+.envelope-big {
+    font-size: 24px;
+    margin-right: 10px;
+    margin-top: 8px ;
+    cursor: pointer;
+}
+
+.inline-block {
+    display: inline-block;
 }
 
 .logo {
@@ -41,7 +61,6 @@ hr {
         .login-box > div:hover {
             opacity: 0.4;
         }
-
 
 #menuBar {
     font-size: 20px;
@@ -94,18 +113,34 @@ hr {
         background-color: rgba(250, 0, 0, 0.4);
     }
 
-#pageBody {
-    margin-top: -20px;
-    background-color: #fffcde;
-    margin-bottom: 50px;
-    display: block;
-    padding: 40px 20px;
+.search-box > div > input,
+.search-box > div > button {
+    height: 50px;
+    font-size: 17px;
+
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    overflow: auto;
 }
 
+#searchResults {
+    font-size: 16px;
+    color: white;
+    width: 80%;
+
+}
+    #searchResults > ul > li {
+        background-color: rgba(0,0,0,0.6);
+        padding: 10px;
+
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+    #searchResults img {
+        height: 100px;
+    }
 .info-box {
     background-color: inherit;
 }
@@ -128,14 +163,6 @@ hr {
     height: 100px;
 }
 
-.contact-info {
-    padding: 0 5%;
-}
-    .contact-info > form {
-        padding: 10% 10%;
-        background-color: #e9e381;
-    }
-
 #followUs {
     width: 100%;
     background-color: #e9e381;
@@ -145,3 +172,40 @@ hr {
         #followUs > div > img {
             width: 50%;
         }
+
+#pageBody {
+    margin-top: -20px;
+    background-color: #fffcde;
+    margin-bottom: 30px;
+    display: block;
+    padding: 40px 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+#pageFooter {
+    height: 50px;
+}
+
+.popover-message {
+    color: black;
+    width: 400px;
+    background-color: #e9e381;
+    border: medium solid black;
+}
+
+.popover-title {
+    padding: 5px;
+}
+
+.message-box {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+    display: inline-block;
+
+    width: 100%;
+}
