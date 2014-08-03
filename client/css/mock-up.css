@@ -1,6 +1,7 @@
 html,body {
     background-color: #e9e381;
     height: 100%;
+    font-family: "DK Crayon Crumble";
 }
 
 hr {
@@ -118,7 +119,7 @@ hr {
 }
 
 #menuBarHolder > .nav-pills > li > a {
-    background-color: rgba(224, 67, 47, 0.9);
+    background-color: rgba(222, 27, 27, 0.90);
     cursor: pointer;
     color: black;
     display: inline-block;
@@ -129,7 +130,7 @@ hr {
     min-width: 60%;
 }
     #menuBarHolder > .nav-pills > li > .active {
-        background-color: rgba(145, 44, 37, 0.90);
+        background-color: rgba(143, 63, 63, 0.90);
         color: white;
         border: thin solid rgba(145, 44, 37, 1);
     }
