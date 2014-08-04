@@ -54,5 +54,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get "mock/mock" => "mock#mock"
+  get "aboutus" => "mock#mock"
 end
