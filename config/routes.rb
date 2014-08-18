@@ -54,5 +54,9 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get "aboutus" => "mock#mock"
+  get 'welcome/about_us'
+  get 'welcome/startup'
+  get 'welcome/startup_profile'
+  get 'welcome/tuition'
+  get 'welcome/tuition_profile'
 end
