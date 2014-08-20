@@ -34,16 +34,16 @@
         </div>
         <br>
         <ul class="nav nav-pills align-center container">
-            <li><a class="active">Personalised Tutorials</a></li>
+            <li><a>Personalised Tutorials</a></li>
             <li><a>Smart Classroom</a></li>
-            <li><a>Start-up Consultation</a></li>
+            <li><a class="active">Start-up Consultation</a></li>
         </ul>
     </div>
     <div id="pageBody">
         <div class="align-center">
             <div class="nav-arrows inline-block">
                 <span class="glyphicon glyphicon-chevron-left"></span>
-                <h2 class="inline-block">Ramesh's Profile</h2>
+                <h2 class="inline-block"> <%= @entrepreneur.name %> 's Profile</h2>
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </div>
         </div>
@@ -52,33 +52,25 @@
             <li class="media">
                 <div class="pull-left thumbnail align-center" href="#">
                     <ul class="nav nav-pills">
-                        <li><a href="#" class="active">About Me</a></li>
-                        <li><a href="#">Reviews/Comments</a></li>
-                        <li><a href="#">Calendar</a></li>
+                        <li><a href="#" class="active">About</a></li>
+                        <li><a href="#">Talk to the Team</a></li>
                     </ul>
                     <hr />
-                    <span id="tutorMessagePopup0" data-id="tutorId0"
-                          data-name="Ramesh" class="glyphicon glyphicon-envelope pull-right envelope-big"></span>
-                    <img src="/images/eraser.png" alt="Ramesh' Photo"><br>
-                    <a class="cursor-pointer">Select And Book A Session</a>
+                    <span id="startupMessagePopup0" data-id="startupId0"
+                          data-name="Clockworks" class="glyphicon glyphicon-envelope pull-right envelope-big"></span>
+                    <img src="/images/eraser.png" alt="Clockworks' Photo"><br>
+                    <a class="cursor-pointer" href="www.clockworks.com.sg">www.clockworks.com.sg</a>
                 </div>
                 <div class="media-body">
                     <ul class="list-group inline-block">
-                        <li>Name: <%= @tutor.name %> </li>
-                        <li>Degree:  <%= @tutor.place %> </li>
-                        <li>Uni: IIT</li><br>
-                        <li>
+                        <li>Name: <%= @entrepreneur.name %> </li>
+                        <li>Degree:  <%= @entrepreneur.degree %> </li>
+                        <li>Place:  <%= @entrepreneur.place %> </li>
+                        <li>Languages: ...</li>
+                        <li>Country:  <%= @entrepreneur.country%> </li><br>
+                        <li>About Me:
                             <p>
-                                In 1991, Shaka Senghor shot and killed a man. He was, he says, "a drug dealer with a quick temper and a semi-automatic
-
-                                pistol." Jailed for second degree murder, that could very well have been the end of the story. But it wasn't. Instead, it was
-
-                                the beginning of a years-long journey to redemption, one with humbling and sobering lessons for us all.This talk was pre-
-                                sented at an official TED conference, and was featured by our editors on the home page.In 1991, Shaka Senghor shot and
-
-                                killed a man. He was, he says, "a drug dealer with a quick temper and a semi-automatic pistol." Jailed for second degree
-
-                                murder, that could very well have been the end of the story. But it wasn't. Instead, it was the beginning of a years-long
+                                 <%= @entrepreneur.about %>
                             </p>
                         </li>
                     </ul>
