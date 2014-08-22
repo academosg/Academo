@@ -7,142 +7,378 @@
 		<!-- Whiteboard -->
 		<script src="./js/literallycanvas.jquery.js"></script>
 		<link href="./css/literally.css" rel="stylesheet">
+		<link href="./css/mock-up.css" rel="stylesheet">
 		
 		<!-- Web RTC -->
 		<script src="http://localhost:8888/socket.io.js"></script>
         <script src="simplewebrtc.bundle.js"></script>
     		
-		<!-- Random Styling -->
-        <style>
-            .videoContainer {
-                position: relative;
-                width: 200px;
-                height: 150px;
-            }
-            .videoContainer video {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-            }
-            .volume_bar {
-                position: absolute;
-                width: 5px;
-                height: 0px;
-                right: 0px;
-                bottom: 0px;
-                background-color: #12acef;
-            }
-			 * { margin: 0; padding: 0; box-sizing: border-box; }
-			  body { font: 13px Helvetica, Arial; }
-			  #test { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-			  #test input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-			  #test button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-			  #messages { list-style-type: none; margin: 0; padding: 0; }
-			  #messages li { padding: 5px 10px; }
-			  #messages li:nth-child(odd) { background: #eee; }
-        </style>
-		
+		<!-- Styling -->
+		<style>
+			#top,
+			#bottom {
+				position: fixed;
+				left: 0;
+				right: 0;
+			}
+			#top {
+				top: 3px;
+				height: 50px;
+				z-index:150;
+			}
+			
+			#top * {
+			  box-sizing: border-box;
+			}
+
+			#top nav {
+			  padding: 0;
+			  margin: 0;
+			}
+			nav ul ul {
+				display: none;
+				background-color: rgba(143, 63, 63, 1);
+				border-radius: 0px; 
+				padding: 0;
+				margin: 0;
+				margin-top: -8px;
+				position: absolute; 
+			  top: 100%;
+			}
+
+			nav ul li:hover > ul {
+			  display: block;
+			}
+			
+			nav ul li:hover > ul.disable {
+			  display: none;
+			}
+
+			nav ul li {
+			  display: inline-block;
+			  margin: 7px 3px;
+			}
+
+			nav ul li:hover {
+			  -webkit-transition-duration: 0.5s;
+			  -moz-transition-duration: 0.5s;
+			  transition-duration: 0.5s;
+			}
+
+			.top-console progress {
+			  margin-top:-7px;
+			  margin-left:4px;
+			  padding:5px;
+			  vertical-align:middle;
+			  
+			}
+			.top-console  {
+			  padding: 6px 13px;
+			  height:34px;
+			  background-color: #FFFCDE;
+			  color: rgba(0,0,0,1);
+			  border-radius: 10px;
+			  width:calc(100% - 10px);
+			  font-style: italic;
+			  overflow: auto;
+			}
+
+			nav ul li ul li{
+			  background: none;
+			  margin: 0px;
+			  padding: 3px;
+			}
+
+			nav ul {
+				padding: 0px;
+			  margin: 0px;
+				list-style: none;
+				position: relative;
+			  box-sizing: border-box;
+			  text-align:left;
+			  display: inline-block;
+			  vertical-align:top;
+			}
+
+			nav ul li a {
+			  display: block; 
+			  padding: 6px 20px;
+			  color: rgba(0,0,0,1);
+			  text-decoration: none;
+			  border-radius: 6px;
+			  border: thin solid rgba(222, 120, 120, 0.9);
+			  background-color: rgba(222, 120, 120, 0.9);
+			  
+			  -webkit-transition-duration: 0.2s;
+			  -moz-transition-duration: 0.2s;
+			  transition-duration: 0.2s;
+			}
+			
+			nav ul li a:hover {
+			  color: rgba(255,255,255,1);
+			  border: thin solid rgba(143, 63, 63, 0.9);
+			  background-color: rgba(143, 63, 63, 0.9);
+			  
+			  -webkit-transition-duration: 0.5s;
+			  -moz-transition-duration: 0.5s;
+			  transition-duration: 0.5s;
+			}
+
+			nav ul li a.disable {
+			  color: rgba(0,0,0,0.2);
+			  border: thin solid rgba(222, 120, 120, 0.2);
+			  background-color: rgba(222, 120, 120, 0.2);
+			  
+			}
+			
+			nav ul li a.disable:hover {
+			  color: rgba(0,0,0,0.2);
+			  border: thin solid rgba(222, 120, 120, 0.2);
+			  background-color: rgba(222, 120, 120, 0.2);
+			}
+			
+			nav ul ul li {
+			  width:100%; 
+			  border-top: 1px ridge;
+			  border-bottom: 1px ridge;
+			  border-color: rgba(170,80,80,0.4);
+			  position: relative;
+			}
+
+			nav ul ul li:hover {
+			  color: rgba(250,250,250,1);
+			  background-color: rgba(222, 120, 120, 1);
+			}
+
+			nav ul ul li a {
+			  background: none;
+			  border: none;
+			}
+			nav ul ul li a:hover {
+			  background: none;
+			  border: none;
+			}
+			
+			#bottom {
+				top: 50px;
+				height: calc(100% - 50px);
+				width:100%;
+			}
+			#c1, #c2 {
+				height: 100%
+				max-height:100%;
+			}
+			#c1 {
+				width: 15%;
+				min-width: calc(200px * 1.15);
+				float:left;
+			}
+			#c2 {
+				margin-top:5px;
+				width: calc(65% - 10px);
+				height: calc(100% - 20px);
+				min-width:500px;
+				float:left;
+				border-style: solid;border-width: 1px;
+			}
+			#c3 {
+				width: auto;
+				min-width:200px;
+				height:100%;
+				max-height:100%;
+				margin-left:80%;
+			}
+			.webcam, 
+			.webcam_tutor {
+				width: calc(200px * 1.05);
+				height: calc(150px * 1.05);
+				margin: 0.5px;
+				margin-top: 5px;
+				background-color: black;
+				display:inline-block;
+			}
+			.webcam_tutor:first-child,
+			.webcam:first-child {
+				margin-top: 10px;
+			}
+			
+			.webcam_container {
+				position: relative;
+			}
+			
+			#tutor_webcam_container {
+				width:100%;
+				height: 180px;
+				text-align:center;
+			}
+			#chat {
+				width:calc(100% - 15px);
+				height: calc(100% - 211px);
+				background-color: white;
+				border-radius: 7px;
+				overflow-y:auto;	
+			}
+			#chatbox {
+				width: 100%;
+				height: 35px;
+			}
+			#chat_msg {
+				width: calc(100% - 80px);
+				margin-left : 0px;
+				margin-top : 3px;
+			}
+			#chat_send_btn {
+				width: 60px
+			
+			}
+		   .volume_bar {
+				position: absolute;
+				width: 5px;
+				height: 0px;
+				right: 0px;
+				bottom: 0px;
+				background-color: #12acef;
+			}
+			#messages { list-style-type: none; margin: 0; padding: 0; }
+			#messages li { padding: 5px 10px; }
+			#messages li:nth-child(odd) { background: #eee; }
+			body { height:auto; }
+		</style>
+
     </head>
+
     <body>
+	
+		<div id="top">
+			<nav>
+				<ul style="width:268px">
+				  <li></li> <!-- To add space -->
+				  <li><a href="#"> Invite </a></li>
+				  <li><a id='share_screen_btn' href="#"> Mute </a></li>
+				  <li> 
+					<input id='share_file' type="file" name="img" style='display:none' > 
+					<a href="#"> Send </a>
+					<ul id='participant_list'>
+					</ul>
+				  </li>
+				</ul>
+			 
+				<ul style="width:calc(100% - 358px)">
+				  <li id='console' class='top-console'></li>
+				</ul>
+				
+				<ul style="width:50px;">
+				  <li><a href="#"> Exit </a></li>
+				</ul>
+				
+			 </nav>
+		</div>
 		
-		<div>
-			<!-- Canvas , Video & Button-->
-			<div style='width:70%;display:inline;float:left'>
-				<div class="literally" style='height:500px;width:100%;border-style: solid;border-width: 1px;'>
-					<canvas></canvas>
-				</div>
-				<div id='button_panel' style="height:35px;padding:5px">
-					<button id="screenShareButton"></button>
-					<input id='share_file' type="file" name="img"> 
-					<button id='send_file'>Send To</button>
-					<select id='participant'>
-					</select>
-					<span id='progress'></span>
-					
-				</div>
-				<div id='video_panel' style='margin:auto;text-align: center;min-width: 800px;'>
-					<div class="videoContainer" style='display:inline-block'>
-						<video id="localVideo" style="height: 150px;" oncontextmenu="return false;"></video>
-						<div id="localVolume" class="volume_bar"></div>
+		<div id="bottom">
+			<div id='c1' class='align-center' >
+				<div id='webcam_container' class='webcam_container'>
+					<div class='webcam'>
+						<video id="local_video" style="height: 150px;" oncontextmenu="return false;"></video>
+						<div id="local_vol" class="volume_bar"></div>
 					</div>
-					<div id="remotes" style='display:inline-block'></div>
 				</div>
 			</div>
 			
+			<div id="c2">
+				<canvas></canvas>
+			</div>
 			
-			<!-- Chat -->
-			<div style='width:30%;border-style: solid;border-width: 1px;float:right'>
-				<h3>Chatbox</h3>
-				<ul id="messages">
-				</ul>
-				<input id="chat_msg_field" autocomplete="off" />
-				<button id='chat_send_btn'>Send</button>
+			<div id="c3">
 				
-			
+				<div id='tutor_webcam_container'>
+					<div class='webcam_container'>
+						
+					</div>
+				</div>
+				
+				<div id='chat'>
+					<div class='align-center'>
+						<h2 style='margin:0px'>Chat Box</h3>
+					</div>
+					<ul id="messages">
+					</ul>
+				</div>
+				
+				<div id='chatbox'>
+					<input id="chat_msg" placeholder="Enter your chat here" onfocus="this.placeholder = ''" autocomplete="off" />
+					<button id='chat_send_btn'>Send</button>
+				</div>
 			</div>
 		</div>
 
-		<script type="text/javascript">
-		  
+
+		<script>
+		
 			var webrtc, 					// webrtc
 				room = '123',
 				global_lc; 					// whiteboard
-		  
+		  		selected_peer_id = '';
+				selected_peer_name = '';
+					
 			$(document).ready(function() {
 			
-			/* --- Initialization --- */
-			// webrtc connection
-			webrtc = new Untitled_Room({
-				localVideoEl: 'localVideo',		// the id/element dom element that will hold "our" video
-				remoteVideosEl: 'remotes',		// the id/element dom element that will hold remote videos
-				autoRequestMedia: true,			// immediately ask for camera access
-				debug: false,
-				detectSpeakingEvents: true,
-				autoAdjustMic: false,
-				session_id: '123',				// this session id should match the one in the database.
-				url: 'http://192.168.0.26:8888'	// socket.io server address
-			});
-			$('#screenShareButton').text('share screen');
-			$('#screenShareButton').click(function () {
-				if (webrtc.getLocalScreen()) {
-					webrtc.stopScreenShare();
-					$('#screenShareButton').text('share screen');
-				} else {
-					webrtc.shareScreen(function (err) {
-						if (err) {
-							$('#screenShareButton').text('share screen');
-						} else {
-							$('#screenShareButton').text('stop sharing');
-						}
-					});
-					
-				}
-            });
-
-			// chat room
-			$('#chat_send_btn').click(function(){
-				if (webrtc.privilege.chat)
-				{
-					var msg = $('#chat_msg_field').val();
-					webrtc.broadcastAll('chat',msg);
-					$('#chat_msg_field').val('');
-				}
-			});
-			  
-			// white board
-			$('.literally').literallycanvas({
-				imageURLPrefix: './img',
-				keyboardShortcuts : false,
-				toolClasses: [LC.PencilWidget, LC.EraserWidget, LC.LineWidget,
-					 LC.RectangleWidget, LC.TextWidget, LC.EyeDropperWidget],
-				onInit: function(lc) {
-					global_lc = lc;
-					lc.on('drawingChange', function(data) {
-						webrtc.broadcastAll('whiteboard',data.shape);
-					});
-				}
-			});
-			
+				/* --- Initialization --- */
+				// webrtc connection
+				webrtc = new Untitled_Room({
+					localVideoEl: 'local_video',		// the id/element dom element that will hold "our" video
+					remoteVideosEl: 'webcam_container',		// the id/element dom element that will hold remote videos
+					autoRequestMedia: true,			// immediately ask for camera access
+					debug: false,
+					detectSpeakingEvents: true,
+					autoAdjustMic: false,
+					session_id: '123',				// this session id should match the one in the database.
+					url: 'http://192.168.0.19:8888'	// socket.io server address
+				});
+				$('#share_screen_btn').click(function () {
+					if (webrtc.getLocalScreen()) {
+						webrtc.stopScreenShare();
+						$('#share_screen_btn').text('Unmute');
+					} else {
+						webrtc.shareScreen(function (err) {
+							if (err) {
+								$('#share_screen_btn').text('Mute');
+							} else {
+								$('#share_screen_btn').text('Unmute');
+							}
+						});
+						
+					}
+				});
+				
+				// chat room
+				$('#chat_send_btn').click(function(){
+					if (webrtc.privilege.chat)
+					{
+						var msg = $('#chat_msg').val();
+						webrtc.broadcastAll('chat',msg);
+						$('#chat_msg').val('');
+					}
+				});
+				
+				// white board
+				$('#c2').literallycanvas({
+					imageURLPrefix: './img',
+					keyboardShortcuts : false,
+					toolClasses: [LC.PencilWidget, LC.EraserWidget, LC.LineWidget,
+						 LC.RectangleWidget, LC.TextWidget, LC.EyeDropperWidget],
+					onInit: function(lc) {
+						global_lc = lc;
+						
+						$('.background-picker').remove(); // remove background picker
+						
+						lc.on('drawingChange', function(data) {
+							webrtc.broadcastAll('whiteboard',data.shape);
+						});
+					}
+				});	
+				
+				
+				
 			/* --- WebRTC Handler --- */
 			 // when it's ready, join if we got a room from the URL
             webrtc.on('readyToCall', function () {
@@ -151,12 +387,23 @@
             });
 			// when people join the room, write the event on the chatbox
             webrtc.on('peerAdded', function (peer) {
-				$('#participant').append('<option value="'+peer.id+'">'+peer.name+'</option>')
+				participant = $('<li value="'+peer.id+'"><a>'+peer.name+'</a></li>');
+				participant.click( function () {
+					selected_peer_id = peer.id;
+					selected_peer_name = peer.name;
+					console.log('click');
+					console.log(selected_peer_id);
+					console.log(selected_peer_name);
+					$('#share_file').trigger('click');   
+				});
+				$('#participant_list').append(participant);
 				$('#messages').append($('<li>').css('color','green').text(peer.name + ' has joined the room'));
+				
+				
 			});
 			// when people left the room, write the event on the chatbox
 			webrtc.on('peerRemoved', function (peer) {
-				$("#participant option[value='"+peer.id+"']").remove();
+				$("#participant_list li[value='"+peer.id+"']").remove();
 				$('#messages').append($('<li>').css('color','red').text(peer.name + ' has left the room'));
             });
 			// when user stop sharing the screen
@@ -271,7 +518,7 @@
 							{
 								if (data.payload.permission)
 								{
-									$('#progress').text(peer.name + ' has accepted the request, starting file transfer ...')
+									$('#console').text(peer.name + ' has accepted the request, starting file transfer ...')
 									var file = document.querySelector('input[type=file]').files[0];
 									var reader = new window.FileReader();
 									reader.readAsDataURL(file);
@@ -283,7 +530,7 @@
 									sending_flag = false;
 									$('#send_file').prop("disabled", false);
 									$('input[type=file]').prop("disabled", false);
-									$('#progress').text('File transfer failed because '+data.payload.reason);
+									$('#console').text('File transfer failed because '+data.payload.reason);
 								}
 							}
 						}
@@ -292,7 +539,7 @@
 							if (receiving_flag == peer.id)
 							{	
 								data_chunks.push(data.payload.message); // pushing chunks in array
-								$('#progress').text('Progress : ' + (data.payload.left) + ' left');
+								$('#console').text('Retriving ' + receiving_filename + ' : ' + (data.payload.left) + ' left');
 
 								// prevent user from sending data that is larger than the maximun size allowed ( 15000000 )
 								var total_length = 0;
@@ -310,7 +557,7 @@
 								if (data.payload.last) {
 									saveToDisk(data_chunks.join(''), receiving_filename);
 									data_chunks = []; // resetting array
-									$('#progress').text('');
+									$('#console').text('');
 									receiving_flag = false;
 								}
 							}
@@ -325,14 +572,15 @@
             });
 			// when new video is added ( usually when new user join in the room )
             webrtc.on('videoAdded', function (video, peer) {
-				$(video).css('z-index',-1);
-                var remotes = $('#remotes');
+				$(video).css('z-index',-1)
+						.css('width','calc(200px * 1.05)')
+						.css('height','calc(150px * 1.05)');
+                var remotes = $('#webcam_container');
                 if (remotes) {
 				
                     var d = $('<div></div>')
-								.addClass('videoContainer')
-								.attr('id', 'container_' + webrtc.getDomId(peer))
-								.css('width', '300px');
+								.addClass('webcam')
+								.attr('id', 'container_' + webrtc.getDomId(peer));
 								
 					if (webrtc.client_type == 'tutor')
 					{
@@ -371,10 +619,12 @@
 						btn_kick.click(function () {
 							broadcastPrivilege(peer.id, 'kick',false);
 						});
-						
+						/*
+						// disable for the moment
 						d.append($(btn_disable_draw));
 						d.append($(btn_mute));
 						d.append($(btn_kick));
+						*/
 					}
 					
 					
@@ -384,8 +634,8 @@
                     vol.id = 'volume_' + peer.id;
                     vol.className = 'volume_bar';
                     video.onclick = function () {
-                        video.style.width = video.videoWidth + 'px';
-                        video.style.height = video.videoHeight + 'px';
+                        //video.style.width = video.videoWidth + 'px';
+                        //video.style.height = video.videoHeight + 'px';
                     };
                     d.append(vol);
 					
@@ -462,11 +712,11 @@
    
 			
 			// File sharing code
-			$('#send_file').click(function () {
+			$('#share_file').change(function(){
 				if (sending_flag === false)
 				{
-					var peer_id = $("#participant option:selected").attr('value');
-					var peer_name = $("#participant option:selected").html();
+					var peer_id = selected_peer_id;
+					var peer_name = selected_peer_name;
 					
 					// get file info
 					var file = document.querySelector('input[type=file]').files[0];
@@ -484,7 +734,7 @@
 							$('input[type=file]').prop("disabled", true);
 							sending_flag = peer_id;
 							webrtc.sendToPeer(peer_id,'file','check',{filename : file.name,filesize : file.size}); // this does not go through the server.
-							$('#progress').text('Waiting for ' + peer_name + ' to accept file');
+							$('#console').text('Waiting for ' + peer_name + ' to accept ' + file.name);
 						}
 					}
 				}
@@ -496,7 +746,7 @@
 				if (event) text = event.target.result; // on first invocation
 				
 				// var size = encodeURI(text).split(/%..|./).length - 1;
-				$('#progress').text('Progress : ' + text.length + ' left');
+				$('#console').text('Sending Progress : ' + text.length + ' left');
 				data.left = text.length;
 				
 				if (text.length > chunk_length) {
@@ -505,7 +755,7 @@
 					data.message = text;
 					data.last = true;
 					sending_flag = false;
-					$('#progress').text('');
+					$('#console').text('');
 					$('#send_file').prop("disabled", false);
 					$('input[type=file]').prop("disabled", false);
 					$('input[type=file]').val('');
@@ -534,9 +784,11 @@
 				console.log('saveToDisk End');
 			}
 
-		 });
-
-        </script>
+		});
+			
+		</script>
+		
 		
     </body>
 </html>
+
