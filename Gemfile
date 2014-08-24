@@ -39,3 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem "tzinfo-data"
+
+#authorization:
+gem 'devise'
+gem 'cancan'
