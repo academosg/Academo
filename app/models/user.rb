@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable
+
+  ROLES = %w[admin entrepreneur tutor student guest]
+  SELECTABLE_ROLES = %w[entrepreneur tutor student]
 end
