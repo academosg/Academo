@@ -4,5 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # TODO: Raise cancan exception if not authorized:
-#   check_authorization
+#   check_authorization :unless => :devise_controller?
+
 end
