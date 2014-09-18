@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Academo</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/mock-up.css">
-    <script src="js/jquery-minified.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/mock-up.js"></script>
-</head>
-<body>
 <div class="container">
     <div class="modal fade" id="profilePopup">
         <div class="modal-dialog modal-vlg">
@@ -65,67 +54,32 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-
-    <div id="pageHeader" class="container-fluid">
-        <div class="row">
-            <div class="col-xs-4 logo">
-                <a href="#"><img src="/images/logo.jpg"></a>
-            </div>
-            <div class="col-xs-3 col-xs-offset-5">
-                <div id="loginBox" class="login-box row align-center">
-                    <% if user_signed_in? %>
-                        <div id="paypalTopUp" class="col-xs-5 top-up">TOP-UP</div>
-                        <div class="col-xs-2"> <%= current_user.email %> </div>
-                        <div class="col-xs-6"> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </div>
-                    <% else %>
-                        <div class="col-xs-6"> <%= link_to('Register', new_user_registration_path) %> </div>
-                        <div class="col-xs-6"> <%= link_to('Login', new_user_session_path) %> </div>
-                    <% end %>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div id="menuBarHolder">
-        <div id="menuBar" class="row align-center">
-            <div class="col-xs-3 menu-item"><h4>About ACADEMO</h4></div>
-            <div class="col-xs-2 menu-item"><h4>Faces</h4></div>
-            <div class="col-xs-3 menu-item"><h4>Our Achievements</h4></div>
-            <div class="col-xs-2 menu-item"><h4>Contact Us</h4></div>
-            <div class="col-xs-2 menu-item"><h4>Blog</h4></div>
-        </div>
-        <br>
-        <ul class="nav nav-pills align-center container">
-            <li><a class="active">Personalised Tutorials</a></li>
-            <li><a>Smart Classroom</a></li>
-            <li><a>Start-up Consultation</a></li>
-        </ul>
-    </div>
-    <div id="pageBody">
-        <div class="info-box" id="aboutAcademo">
-            <h3 class="header align-center">How does it work?</h3>
-            <h4 class="center-block align-center">
-                <ol type="1" class="inline-block align-left">
-                    <li>Search for a Subject/Tutor</li>
-                    <li>Get Started!</li>
-                </ol>
-            </h4>
-        </div>
-    </div>
-    <div id="searchBox" class="container">
-        <div class="form-group row search-box">
-            <div class="col-xs-7 col-xs-offset-1">
-                <input type="text" class="form-control" placeholder="Physics or John" />
-            </div>
-            <div class="col-xs-2">
-                <button type="button" class="form-control">Search</button>
-            </div>
-        </div>
-    </div>
+	
+	<div id="pageBody">
+		<div class="info-box" id="aboutAcademo">
+			<h3 class="header align-center">How does it work?</h3>
+			<h4 class="center-block align-center">
+				<ol type="1" class="inline-block align-left">
+					<li>Search for a Subject/Tutor</li>
+					<li>Get Started!</li>
+				</ol>
+			</h4>
+		</div>
+	</div>
+	<div id="searchBox" class="container">
+		<div class="form-group row search-box">
+			<div class="col-xs-7 col-xs-offset-1">
+				<input type="text" class="form-control" placeholder="Physics or John" />
+			</div>
+			<div class="col-xs-2">
+				<button type="button" class="form-control">Search</button>
+			</div>
+		</div>
+	</div>
 
     <div id="searchResults" class="container">
-        <ul class="media-list">
-            <% @tutors.each do |tutor| %>
+        <ul class="media-list black-background">
+              <% @tutors.each do |tutor| %>
                 <li class="media" id= <%= tutor.id %> >
                     <span id="tutorMessagePopup0" data-id= <%= tutor.id %>  data-name= <%= tutor.name %>  class="glyphicon glyphicon-envelope pull-right envelope-big"></span>
                     <br>
@@ -146,7 +100,8 @@
         </ul>
     </div>
 
-    <div id="pageFooter"></div>
 </div>
-</body>
-</html>
+
+
+
+

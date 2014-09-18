@@ -1,51 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Academo</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/mock-up.css">
-    <script src="js/jquery-minified.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-</head>
-<body>
+
     <div class="container">
-        <div id="pageHeader" class="container-fluid">
-            <div class="row">
-                <div class="col-xs-4 logo">
-                    <a href="#"><img src="/images/logo.jpg"></a>
-                </div>
-                <div class="col-xs-3 col-xs-offset-5">
-                    <div class="login-box row">
-                        <% if user_signed_in? %>
-                            <div class="col-xs-2"> <%= current_user.email %> </div>
-                            <div class="col-xs-6"> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </div>
-                        <% else %>
-                            <div class="col-xs-6"> <%= link_to('Register', new_user_registration_path) %> </div>
-                            <div class="col-xs-6"> <%= link_to('Login', new_user_session_path) %> </div>
-                        <% end %>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div id="menuBarHolder">
-            <div id="menuBar" class="row align-center">
-                <div class="col-xs-3 menu-item"><h4>About ACADEMO</h4></div>
-                <div class="col-xs-2 menu-item"><h4>Faces</h4></div>
-                <div class="col-xs-3 menu-item active"><h4>Our Achievements</h4></div>
-                <div class="col-xs-2 menu-item"><h4>Contact Us</h4></div>
-                <div class="col-xs-2 menu-item"><h4>Blog</h4></div>
-            </div>
-            <br>
-            <ul class="nav nav-pills align-center container">
-                <li><a class="active">Personalised Tutorials</a></li>
-                <li><a>Smart Classroom</a></li>
-                <li><a>Start-up Consultation</a></li>
-            </ul>
-        </div>
         <div id="pageBody" class="container-fluid">
             <div class="info-box" id="aboutAcademo">
-                <h2 class="header align-center">About Academo</h2>
+                <h2 class="header align-center color-pink">About Academo</h2>
                 <div class="info">
                     <div class="info-pic-holder align-center"><img src="/images/info.jpg"></div>
                     <div class="info-text-holder">
@@ -148,7 +105,4 @@
             </div>
             <br><br>
         </div>
-        <div id="pageFooter"></div>
     </div>
-</body>
-</html>

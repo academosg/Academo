@@ -1,0 +1,240 @@
+
+@font-face {
+  font-family: 'DK Crayon Crumble';
+  src: url('fonts/dk-crayon-crumble.ttf');
+ 
+}
+
+html,body {
+    background-color: #e9e381;
+    height: 100%;
+	font-size: 16px;
+	font-family: 'DK Crayon Crumble';
+}
+#pageHeaderMenu {
+	margin-bottom: 45px;
+}
+
+#menuBarUpper {
+    font-size: 30px;
+	font-weight: bold;
+    cursor: pointer;
+	margin-bottom: 35px;
+}
+	#menuBarUpper > .menu-item {
+        opacity: 1.0;
+		-webkit-transition-duration: 0.5s;
+		-moz-transition-duration: 0.5s;
+		transition-duration: 0.5s;
+	}
+	
+	#menuBarUpper > .menu-item:hover {
+        opacity: 0.4;
+		-webkit-transition-duration: 0.1s;
+		-moz-transition-duration: 0.1s;
+		transition-duration: 0.1s;
+	}
+
+	
+#menuBarLower {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+}
+
+	#menuBarLower li a{
+		font-size: 23px;
+	}
+
+
+.login-box {
+    font-size: 28px;
+    padding-top: 20px;
+}
+    .login-box > div {
+        cursor: pointer;
+        background-color: inherit;
+    }
+        .login-box > div:hover {
+            opacity: 0.4;
+        }
+		
+		
+#header-email{
+    font-size: 20px;
+	transform: translateY(25%);
+}
+
+.menu-item.active,
+.menu-item:active {
+	color: rgb(214,128,129);
+    font-size: 32px;
+}
+
+.color-pink {
+	color: rgb(214,128,129);
+	font-weight: bold;
+}
+.black-background > li{
+	padding: 5px 10px;
+	background-color: rgb(70,69,38);
+	color: rgb(255,255,255);
+
+}
+
+
+/* Overwritting boostrap css */
+input.form-control,
+input { 
+	border-radius: 7px;
+}
+
+button.form-control ,
+button {
+	font-size: 20px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.container{
+	width:80%;
+}
+/* end */
+
+
+hr {
+    border-color: #000000;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.color-red {
+    background-color: rgba(224, 67, 47, 0.9);
+    border: red;
+}
+.color-red:hover {
+	background-color: rgba(250, 0, 0, 1);
+}
+
+
+.logo {
+    height: 100px;
+}
+
+    .logo > a > img {
+        height: 100%;
+    }
+
+.nav-pills {
+    padding: 0;
+}
+
+.nav-pills > li {
+    width: 33%;
+}
+
+.nav-pills > li > a {
+    background-color: rgba(224, 67, 47, 0.9);
+    cursor: pointer;
+    color: black;
+    display: inline-block;
+    font-size: 18px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    min-width: 60%;
+	
+	-webkit-transition-duration: 0.5s;
+	-moz-transition-duration: 0.5s;
+	transition-duration: 0.5s;
+	
+}
+.nav-pills.type-b > li > a {
+    background-color: #e9e381;
+}
+
+
+	.nav-pills > li > .active {
+        background-color: rgba(145, 44, 37, 0.90);
+        color: white;
+        border: thin solid rgba(145, 44, 37, 1);
+    }
+	.nav-pills.type-b  > li > .active {
+        border: none;
+        background-color: rgba(250, 0, 0, 0);
+		color: rgb(214,128,129);
+		font-weight: bold;
+	}
+	
+    .nav-pills > li > a:hover,
+    .nav-pills > li > a.active:hover{
+        background-color: rgba(250, 0, 0, 0.5);
+		
+		-webkit-transition-duration: 0.0s;
+		-moz-transition-duration: 0.0s;
+		transition-duration: 0.0s;
+    }
+	.nav-pills.type-b  > li > a:hover {
+		background-color: #e9e381;
+	}
+    .nav-pills.type-b  > li > a.active:hover{
+        background-color: rgba(250, 0, 0, 0);
+    }
+	
+	
+	
+
+#pageBody {
+    margin-top: -20px;
+    background-color: #fffcde;
+    margin-bottom: 50px;
+    display: block;
+    padding: 40px 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.info-box {
+    background-color: inherit;
+}
+
+.info-pic-holder > img {
+    width: 40%;
+    height: 40%;
+}
+
+.info-text-holder {
+    padding: 0 10%;
+    margin-top: 10px;
+}
+
+.info-faces-holder {
+    padding: 0 5%;
+}
+
+.thumbnail > img {
+    height: 100px;
+}
+
+.contact-info {
+    padding: 0 5%;
+}
+    .contact-info > form {
+        padding: 10% 10%;
+        background-color: #e9e381;
+    }
+
+#followUs {
+    width: 100%;
+    background-color: #e9e381;
+    margin: 10px 0 0 0;
+    padding: 10px 0;
+}
+        #followUs > div > img {
+            width: 50%;
+        }

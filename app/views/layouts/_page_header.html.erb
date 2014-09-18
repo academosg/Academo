@@ -1,0 +1,35 @@
+<div id="pageHeader" class="container-fluid">
+	<div class="row">
+		<div class="col-xs-4 logo">
+			<a href="#"><img src="/images/logo.jpg"></a>
+		</div>
+		<div class="col-xs-3 col-xs-offset-5">
+			<div class="login-box row">
+				<% if user_signed_in? %>
+					<div id='header-email' class="col-xs-6"> <%= current_user.email %> </div>
+					<div class="col-xs-6"> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </div>
+				<% else %>
+					<div class="col-xs-6"> <%= link_to('Register', new_user_registration_path) %> </div>
+					<div class="col-xs-6"> <%= link_to('Login', new_user_session_path) %> </div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="pageHeaderMenu">
+	<div id="menuBarUpper" class="row align-center">
+		<div class="col-xs-3 menu-item">About ACADEMO</div>
+		<div class="col-xs-2 menu-item">Faces</div>
+		<div class="col-xs-3 menu-item active">Our Achievements</div>
+		<div class="col-xs-2 menu-item">Contact Us</div>
+		<div class="col-xs-2 menu-item">Blog</div>
+	</div>
+	<br>
+	<ul id="menuBarLower" class="nav nav-pills align-center container">
+		<li><a class="active">Personalised Tutorials</a></li>
+		<li><a>Smart Classroom</a></li>
+		<li><a>Start-up Consultation</a></li>
+	</ul>
+</div>
