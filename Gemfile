@@ -43,3 +43,6 @@ gem "tzinfo-data"
 #authorization:
 gem 'devise'
 gem 'cancan'
+
+#webserver:
+gem "bigbluebutton_rails"

@@ -6,4 +6,13 @@ class ApplicationController < ActionController::Base
   # TODO: Raise cancan exception if not authorized:
 #   check_authorization :unless => :devise_controller?
 
+	# overriding bigbluebutton_rails function
+	def bigbluebutton_user
+	  current_user && current_user.is_a?(User) ? current_user : nil
+	end
+
+	def bigbluebutton_role(room)
+	  ...
+	end
+
 end
