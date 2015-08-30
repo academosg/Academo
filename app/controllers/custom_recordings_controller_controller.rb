@@ -1,0 +1,2 @@
+class CustomRecordingsControllerController < ApplicationController
+end

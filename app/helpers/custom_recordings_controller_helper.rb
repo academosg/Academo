@@ -1,0 +1,2 @@
+module CustomRecordingsControllerHelper
+end

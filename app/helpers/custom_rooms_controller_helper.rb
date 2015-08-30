@@ -1,0 +1,2 @@
+module CustomRoomsControllerHelper
+end

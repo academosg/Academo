@@ -8,11 +8,11 @@ class ApplicationController < ActionController::Base
 
 	# overriding bigbluebutton_rails function
 	def bigbluebutton_user
-	  current_user && current_user.is_a?(User) ? current_user : nil
-	end
+    	current_user && current_user.is_a?(User) ? current_user : nil
+  	end
 
 	def bigbluebutton_role(room)
-	  ...
+	
 	end
 
 end
