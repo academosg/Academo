@@ -1,7 +1,19 @@
+<%= javascript_include_tag 'rails' %>
+<script>
+	$( "menuBarLower#li" ).hover(
+  function() {
+    $(this).addclass("active");
+  }, function() {
+    $( this ).removeclass("active");
+  }
+);	
+</script>
+
+
 <div id="pageHeader" class="container-fluid">
 	<div class="row">
 		<div class="col-xs-4 logo">
-			<a href="#"><img src="/images/logo.jpg"></a>
+			<a href="/"><img src="/images/logo.jpg"></a>
 		</div>
 		<div class="col-xs-3 col-xs-offset-5">
 			<div class="login-box row">
@@ -9,7 +21,7 @@
 					<div id='header-email' class="col-xs-6"> <%= current_user.email %> </div>
 					<div class="col-xs-6"> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </div>
 				<% else %>
-					<div class="col-xs-6"> <%= link_to('Register', new_user_registration_path) %> </div>
+					<div class="col-xs-6"> <%= link_to('Register', new_user_registration_path) %></div>
 					<div class="col-xs-6"> <%= link_to('Login', new_user_session_path) %> </div>
 				<% end %>
 			</div>
@@ -20,16 +32,16 @@
 
 <div id="pageHeaderMenu">
 	<div id="menuBarUpper" class="row align-center">
-		<div class="col-xs-3 menu-item">About ACADEMO</div>
-		<div class="col-xs-2 menu-item">Faces</div>
-		<div class="col-xs-3 menu-item active">Our Achievements</div>
-		<div class="col-xs-2 menu-item">Contact Us</div>
-		<div class="col-xs-2 menu-item">Blog</div>
+		<div class="col-xs-3 menu-item"><%= link_to "About ACADEMO", welcome_about_us_path %></div>
+		<div class="col-xs-2 menu-item"><%= link_to "Faces", welcome_faces_path %></div>
+		<div class="col-xs-3 menu-item active"><%= link_to "Our Achievements", welcome_achievement_path %></div>
+		<div class="col-xs-2 menu-item"><%= link_to "Contact Us", welcome_contact_path %></div>
+		<div class="col-xs-2 menu-item"><a href="#">Blog</a></div>
 	</div>
 	<br>
 	<ul id="menuBarLower" class="nav nav-pills align-center container">
-		<li><a class="active">Personalised Tutorials</a></li>
-		<li><a>Smart Classroom</a></li>
-		<li><a>Start-up Consultation</a></li>
+		<li><%= link_to "Personalised Tutorials", welcome_tuition_path %></li>
+		<li><%= link_to "Smart Classroom", welcome_tuition_path %></li>
+		<li><%= link_to "Start-Up Consultation", welcome_startup_path %></li>
 	</ul>
 </div>

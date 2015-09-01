@@ -5,6 +5,15 @@ class WelcomeController < ApplicationController
   def about_us
   end
 
+  def faces
+  end
+
+  def achievement
+  end
+
+  def contact
+  end
+
   def startup
   end
 

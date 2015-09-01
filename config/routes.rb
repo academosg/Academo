@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   get 'welcome/index'
   get 'welcome/about_us'
+  get 'welcome/faces'
+  get 'welcome/achievement'
+  get 'welcome/contact'
+  get 'welcome/about_us'
   get 'welcome/startup'
   get 'welcome/startup_profile'
   get 'welcome/tuition'
