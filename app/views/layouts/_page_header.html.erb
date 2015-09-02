@@ -1,12 +1,14 @@
-<%= javascript_include_tag 'rails' %>
 <script>
-	$( "menuBarLower#li" ).hover(
-  function() {
-    $(this).addclass("active");
-  }, function() {
-    $( this ).removeclass("active");
-  }
-);	
+$(document).ready(function(){
+		$( "menuBarLower#li" ).hover(
+	  function() {
+	    $(this).addclass("active");
+	  }, function() {
+	    $( this ).removeclass("active");
+	  }
+	);	
+});
+	
 </script>
 
 
@@ -19,7 +21,7 @@
 			<div class="login-box row">
 				<% if user_signed_in? %>
 					<div id='header-email' class="col-xs-6"> <%= current_user.email %> </div>
-					<div class="col-xs-6"> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </div>
+					<div class="col-xs-6"><%= link_to "Logout", destroy_user_session_path %></div>
 				<% else %>
 					<div class="col-xs-6"> <%= link_to('Register', new_user_registration_path) %></div>
 					<div class="col-xs-6"> <%= link_to('Login', new_user_session_path) %> </div>

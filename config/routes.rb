@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
+
   get 'welcome/index'
   get 'welcome/about_us'
   get 'welcome/faces'
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root :to => 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -32,10 +33,6 @@ Rails.application.routes.draw do
     :rooms => 'custom_rooms',
     :recordings => 'custom_recordings'
   }
-
-  resources :users do
-    bigbluebutton_routes :room_matchers
-  end
 
   # Example resource route with options:
   #   resources :products do
